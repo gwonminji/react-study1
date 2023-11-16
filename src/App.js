@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+// import useState from "react";
+// import logo from './logo.svg';
+// import './App.css';
+import { useRef, useState, useMemo, useEffect } from 'react';
+
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset'
+import TodoTemplate from './components/TodoTemplate';
+import TodoHeader from './components/TodoHeader';
+import TodoCreate from './components/TodoCreate';
+import TodoList from './components/TodoList';
+import TodoItem from './components/TodoItem';
+
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  *{
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  }
+  body{
+    background: #e9ecef;
+  }
+`;
 
 function App() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    console.log("todos", todos)
+  }, [todos])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <TodoTemplate>
+        <TodoHeader todos={todos} />
+        <TodoList>
+          <TodoItem todos={todos} setTodos={setTodos} />
+        </TodoList>
+        <TodoCreate todos={todos} setTodos={setTodos} />
+      </TodoTemplate>
+    </>
   );
 }
 
