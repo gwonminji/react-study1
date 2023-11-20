@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { IoMdAddCircle } from "react-icons/io";
+
 import { useState, useRef, useEffect } from 'react';
 
 const CreateBlock = styled.div`
     position: relative;
     margin: 16px 0 0 0;
     padding: 16px 0 0 0;
-    // border-top: 1px solid #e4e4e4;
 `;
 const BtnCreate = styled.button`
     display: flex;
@@ -30,7 +30,6 @@ const BtnCreate = styled.button`
 `;
 const CreateForm = styled.form`
     display: flex;
-    border: 1px solid #f4f4f4;
 `;
 const Input = styled.input`
     padding: 0 0 0 16px;

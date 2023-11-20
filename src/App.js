@@ -1,7 +1,4 @@
-// import useState from "react";
-// import logo from './logo.svg';
-// import './App.css';
-import { useRef, useState, useMemo, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset'
@@ -26,9 +23,9 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   const [todos, setTodos] = useState([]);
 
-  useEffect(() => {
-    console.log("todos", todos)
-  }, [todos])
+  // useEffect(() => {
+  //   console.log("todos", todos)
+  // }, [todos])
 
   return (
     <>
